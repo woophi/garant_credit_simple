@@ -25,7 +25,6 @@ const pips: SliderInputProps['pips'] = {
 
 export const App = () => {
   const [value, setValue] = useState<number | string>(1_000_000);
-  const [expanded, setExpanded] = useState(false);
 
   const handleInputChange: SliderInputProps['onInputChange'] = (_, { value }) => {
     setValue(typeof value === 'string' ? Number(value.replace(/ /g, '')) : value);
@@ -38,10 +37,6 @@ export const App = () => {
   const numberValue = typeof value === 'string' ? Number(value.replace(/ /g, '')) : value;
   const handleBlur = () => {
     setValue(Math.max(min, Math.min(max, numberValue)));
-  };
-
-  const handleToggle = () => {
-    setExpanded(!expanded);
   };
 
   return (

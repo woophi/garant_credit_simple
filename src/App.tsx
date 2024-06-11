@@ -6,8 +6,8 @@ import { Typography } from '@alfalab/core-components/typography';
 import { useState } from 'react';
 import { appSt } from './style.css';
 
-const min = 30_000;
-const max = 5_000_000;
+const min = 0;
+const max = 1_600_000;
 const step = 1000;
 const range: SliderInputProps['range'] = {
   min: [min],
@@ -31,7 +31,7 @@ function calculatePayment(principal: number, interestRate: number, term: number)
 }
 
 export const App = () => {
-  const [value, setValue] = useState<number | string>(1_000_000);
+  const [value, setValue] = useState<number | string>(30_000);
 
   const handleInputChange: SliderInputProps['onInputChange'] = (_, { value }) => {
     setValue(typeof value === 'string' ? Number(value.replace(/ /g, '')) : value);

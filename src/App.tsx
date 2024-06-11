@@ -23,6 +23,13 @@ const pips: SliderInputProps['pips'] = {
   },
 };
 
+function calculatePayment(principal: number, interestRate: number, term: number) {
+  const monthlyInterestRate = interestRate / 12;
+  const exponent = Math.pow(1 + monthlyInterestRate, term);
+
+  return (principal * monthlyInterestRate * exponent) / (exponent - 1);
+}
+
 export const App = () => {
   const [value, setValue] = useState<number | string>(1_000_000);
 
@@ -38,6 +45,8 @@ export const App = () => {
   const handleBlur = () => {
     setValue(Math.max(min, Math.min(max, numberValue)));
   };
+
+  const monthlyPayment = calculatePayment(numberValue, 0.36, 60).toFixed(0);
 
   return (
     <>
@@ -63,6 +72,7 @@ export const App = () => {
           size={56}
           rightAddons="₽"
           fieldClassName={appSt.slider}
+          sliderClassName={appSt.slid}
         />
 
         <Typography.Text tag="p" view="primary-medium" weight="bold" defaultMargins={false}>
@@ -71,10 +81,10 @@ export const App = () => {
 
         <div className={appSt.card}>
           <Typography.TitleResponsive font="system" tag="h2" view="xsmall" weight="bold">
-            29 700 ₽ / мес
+            {Number(monthlyPayment).toLocaleString('ru')} ₽ / мес
           </Typography.TitleResponsive>
           <Typography.Text tag="p" view="primary-small" defaultMargins={false}>
-            Ставка 13,5%
+            Ставка 16%
           </Typography.Text>
 
           <div className={appSt.line}>
@@ -97,7 +107,7 @@ export const App = () => {
           <div className={appSt.btnContainer}>
             <div>
               <Typography.TitleResponsive font="system" tag="h2" view="xsmall" weight="bold">
-                29 700 ₽
+                {Number(monthlyPayment).toLocaleString('ru')} ₽
               </Typography.TitleResponsive>
               <Typography.Text style={{ color: '#A1A1A1' }} tag="p" view="primary-small" defaultMargins={false}>
                 Платеж в месяц
@@ -107,7 +117,7 @@ export const App = () => {
             <div className={appSt.btnContainer}>
               <div>
                 <Typography.TitleResponsive font="system" tag="h2" view="xsmall" weight="bold">
-                  13,5%
+                  16%
                 </Typography.TitleResponsive>
                 <Typography.Text style={{ color: '#A1A1A1' }} tag="p" view="primary-medium" defaultMargins={false}>
                   Ставка

@@ -47,6 +47,10 @@ const line = style({
   alignItems: 'center',
 });
 
+const slid = style({
+  width: 'calc(100% - var(--slider-input-progress-margin-horizontal) * 2) !important',
+});
+
 export const appSt = {
   bottomBtn,
   container,
@@ -55,4 +59,5 @@ export const appSt = {
   btnContainer,
   btn,
   line,
+  slid,
 };

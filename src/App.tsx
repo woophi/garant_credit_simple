@@ -93,12 +93,6 @@ export const App = () => {
               Защита кредита
             </Typography.Text>
           </div>
-          <div className={appSt.line}>
-            <CDNIcon name="glyph_checkmark_m" color="#23B100" />
-            <Typography.Text tag="p" view="primary-small" defaultMargins={false}>
-              Выгодная ставка
-            </Typography.Text>
-          </div>
         </div>
       </div>
       <Gap size={96} />

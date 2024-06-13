@@ -7,7 +7,7 @@ import { useState } from 'react';
 import { appSt } from './style.css';
 
 const min = 30_000;
-const max = 1_600_000;
+const max = 700_000;
 const step = 1000;
 const range: SliderInputProps['range'] = {
   min: [min],

@@ -7,7 +7,7 @@ import { useState } from 'react';
 import { appSt } from './style.css';
 
 const min = 30_000;
-const max = 500_000;
+const max = 1_300_000;
 const step = 10000;
 const range: SliderInputProps['range'] = {
   min: [min],
@@ -46,7 +46,7 @@ export const App = () => {
     setValue(Math.max(min, Math.min(max, numberValue)));
   };
 
-  const monthlyPayment = calculatePayment(numberValue, 0.4, 60).toFixed(0);
+  const monthlyPayment = calculatePayment(numberValue, 0.29, 60).toFixed(0);
 
   return (
     <>
@@ -84,7 +84,7 @@ export const App = () => {
             {Number(monthlyPayment).toLocaleString('ru')} ₽ / мес
           </Typography.TitleResponsive>
           <Typography.Text tag="p" view="primary-small" defaultMargins={false}>
-            Ставка 21%
+            Ставка 23%
           </Typography.Text>
 
           <div className={appSt.line}>
@@ -116,7 +116,7 @@ export const App = () => {
             <div className={appSt.btnContainer}>
               <div>
                 <Typography.TitleResponsive font="system" tag="h2" view="xsmall" weight="bold">
-                  21%
+                  23%
                 </Typography.TitleResponsive>
                 <Typography.Text style={{ color: '#A1A1A1' }} tag="p" view="primary-medium" defaultMargins={false}>
                   Ставка

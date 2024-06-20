@@ -101,7 +101,7 @@ export const App = () => {
           block
           view="primary"
           className={appSt.btn}
-          href="alfabank://webFeature?type=recommendation&url=https%3A%2F%2Fclick.alfabank.ru%2Fmobile-offers%2Fweb%2FPIL%2Fcredits%2FCH?isWebView=true"
+          href="alfabank://webFeature?type=recommendation&url=https%3A%2F%2Fclick.alfabank.ru%2Fmobile-offers%2Fweb%2FPIL%2Fcredits%2FMT?isWebView=true"
         >
           <div className={appSt.btnContainer}>
             <div>
